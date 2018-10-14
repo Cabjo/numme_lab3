@@ -1,0 +1,14 @@
+clear all, close all, clc
+theta_0 = 5:5:90;
+theta_0 = theta_0*pi/180;           % Theta_0 in radians
+l = 0.5;                            % Length of the pendulum
+g = 9.82;                           % The standard acceleration of gravity
+k = sin(theta_0/2);
+k1 = sin(5*pi/180);
+
+f = @(alpha) 1./sqrt(1 - k1.^2.*sin(alpha).^2);
+h = 0.01;
+x=0:h:pi/2;
+I = h/2*sum();
+plot(x,f(x))
+
