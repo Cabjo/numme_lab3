@@ -1,0 +1,16 @@
+clear all; close all;
+l = 0.5;                            % Length of the pendulum
+g = 9.82;                           % The standard acceleration of gravity
+
+u_0 = [025*pi/180];
+f=@(t,u) [u(2); -g/l*sin(u(1))];
+% Runge-Kutta:
+tspan=[0 0.1];
+N = 1;
+[tRK,yRK]=RK4(f, tspan, N, u_0);
+tRK
+yRK
+
+[tODE45,yODE45] = ode45(f,tspan, u_0);
+disp(['Value calculated with ODE45 is :' num2str(yODE45(end,2))])
+disp(['Value calculated with RK4 is :' num2str(yRK(end,2))])

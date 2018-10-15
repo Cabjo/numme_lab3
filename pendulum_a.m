@@ -2,8 +2,8 @@ clear all, close all, clc
 %format long
 
 % Problem a
-theta_0 = 5:5:90;                   % Theta_0 in degrees
-theta_0 = theta_0*pi/180;           % Theta_0 in radians
+theta_0_deg = 5:5:90;                   % Theta_0 in degrees
+theta_0 = theta_0_deg*pi/180;           % Theta_0 in radians
 T_vector = zeros(size(theta_0));
 
 l = 0.5;                            % Length of the pendulum
@@ -37,7 +37,7 @@ for theta = theta_0(1:end)
     T_vector(index) = t_new;
 end
 
-table = [theta_0', T_vector'];
+table = [theta_0_deg', theta_0', T_vector']
 
 
 
@@ -49,7 +49,7 @@ error_theta_vector_1_percent = [];
 error_vector_10_percent = [];
 error_theta_vector_10_percent = [];
 
-relative_error = abs((T_vector - T_tilde)./T_vector)'
+relative_error = abs((T_vector - T_tilde)./T_vector)';
 
 for i = 1:size(relative_error) % error = relative_error(1:end)
     if relative_error(i) < 0.01
@@ -62,5 +62,5 @@ for i = 1:size(relative_error) % error = relative_error(1:end)
     end
 end
 
-error_table_1_percent = [error_theta_vector_1_percent', error_vector_1_percent']
-error_table_10_percent = [error_theta_vector_10_percent', error_vector_10_percent']
+error_table_1_percent = [error_theta_vector_1_percent', error_vector_1_percent'];
+error_table_10_percent = [error_theta_vector_10_percent', error_vector_10_percent'];
