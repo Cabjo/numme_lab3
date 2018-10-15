@@ -62,5 +62,5 @@ for i = 1:size(relative_error) % error = relative_error(1:end)
     end
 end
 
-error_table_1_percent = [error_theta_vector_1_percent', error_vector_1_percent']
-error_table_10_percent = [error_theta_vector_10_percent', error_vector_10_percent']
+error_table_1_procent = [error_theta_vector_1_percent', error_vector_1_percent']
+error_table_10_procent = [error_theta_vector_10_percent', error_vector_10_percent']
